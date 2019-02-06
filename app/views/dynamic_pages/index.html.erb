@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= gossip.title %></h5>
                     <p class="card-text">Ce potin a ete cree par: <%= User.find(gossip.user_id).first_name %>.</p>
-                    <a href="http://localhost:3000/potin/<%= gossip.id %>" class="btn btn-primary">Vour le Potin</a>
+                    <a href="/potin/<%= gossip.id %>" class="btn btn-primary">Vour le Potin</a>
                 </div>
             </div>
         </div>
