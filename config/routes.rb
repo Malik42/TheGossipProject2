@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'drinks#index'
   # Contient les routes du programme
 
   get '/', to: 'dynamic_pages#index' # renvoi vers le model index
