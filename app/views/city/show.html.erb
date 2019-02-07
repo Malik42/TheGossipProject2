@@ -1,7 +1,15 @@
-<div class="text-center m-5">
+<%# <% g%> %>
+
+<div class="text-center m-5 col-12">
     <h2>Nom de la ville : <%= @city.name %></h2>
     <p>code postale : <%= @city.zip_code %></p>
     <p>Crée le : <%= @city.created_at %></p>
     <a href="<%= edit_city_path(@city.id) %>" class="btn btn-primary">edit</a>
-    <a href="" class="btn btn-primary">Supprimer</a>
+</div>
+
+<div class="row col-12 m-auto">
+    <h2 class="text-center m-4 mb-5 col-12">Voici les potins ecrit par les utilisateurs de cette ville:</h2>
+    <% user.each do |t| %>
+    <p><%= t.id %></p>
+    <% end %>
 </div>
