@@ -1,0 +1,7 @@
+<div class="text-center m-5">
+    <h2>Nom de la ville : <%= @city.name %></h2>
+    <p>code postale : <%= @city.zip_code %></p>
+    <p>Crée le : <%= @city.created_at %></p>
+    <a href="<%= edit_city_path(@city.id) %>" class="btn btn-primary">edit</a>
+    <a href="" class="btn btn-primary">Supprimer</a>
+</div>

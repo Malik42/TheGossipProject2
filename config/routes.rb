@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :gossips
+  resources :city
   root 'gossips#index'
   # Contient les routes du programme
 
