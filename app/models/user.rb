@@ -10,12 +10,9 @@ class User < ApplicationRecord
   validates :email,    :presence => true,
                        :uniqueness => true,
                        :format =>{ with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-                       validates :first_name,:last_name, length: { minimum: 2 }, :presence => true
-                       validates :age, :presence => true
-                       validates :city_id, :presence => true
-                       
-
-
+  validates :first_name,:last_name, length: { minimum: 2 }, :presence => true
+  validates :age, :presence => true
+  validates :city_id, :presence => true
 
   belongs_to :city, optional: true # on fait le lien entre l'user et sa ville
   has_many :gossips # on dit qu'un user peut cree des gossip
