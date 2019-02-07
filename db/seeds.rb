@@ -39,5 +39,3 @@ end
   # on remplis la table PrivateMessage avec des donnee cree par faker
   pm = PrivateMessage.create!(content: Faker::Lorem.sentence,sender_id: rand((User.first.id)..(User.last.id)),recipient_id: rand((User.first.id)..(User.last.id)))
 end
-
-Faker::Internet.password
