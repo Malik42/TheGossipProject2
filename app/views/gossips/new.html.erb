@@ -1,17 +1,7 @@
 <h1>cree un potin</h1>
 
-<%= form_for @gossip do |f| %>
-    <div class="form-group">
-        <label for="">titre du potin</label>
-        <%= f.text_field :title, class: "form-control" %>
-    </div>
-        
-    <div class="form-group">
-        <label for="">contenu du potin</label>
-        <%= f.text_field :content, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">cree le potin</button>
-    </div>   
+<%= form_tag "/show", method: "post" do%>
+    <input type="text" name="title">
+    <input type="text" name="contener">
+    <input type="submit" value="Crée le potin">
 <% end %>
