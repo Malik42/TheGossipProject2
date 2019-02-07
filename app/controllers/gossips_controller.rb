@@ -19,7 +19,14 @@ class GossipsController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     gossip = Gossip.create!(title:params[:title],content: params[:content],user_id: rand((User.first.id)..(User.last.id)))
-    redirect_to gossip_path(gossip.id)
+    
+    if gossip.title == ""
+      gossip.delete
+      redirect_to "http://localhost:3000/gossips/new"
+      puts "non tu a pas remplit le formulaire"
+    else
+      redirect_to gossip_path(gossip.id)
+    end
   end
 
   def edit
