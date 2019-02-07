@@ -10,8 +10,9 @@ class User < ApplicationRecord
   validates :email,    :presence => true,
                        :uniqueness => true,
                        :format =>{ with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-                       validates :first_name,:last_name, length: { minimum: 2 }
-
+                       validates :first_name,:last_name, length: { minimum: 2 }, :presence => true
+                       validates :age, :presence => true
+                       validates :city_id, :presence => true
                        
 
 
