@@ -1,0 +1,11 @@
+<h1>Modification du commentaire</h1>
+
+<div class="col-6">
+    <%= form_for @comment do |f|%>
+        <div>
+            <label for="content">contenu du commentaire</label>
+            <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Modifier le commentaire">
+    <% end %>
+</div>
