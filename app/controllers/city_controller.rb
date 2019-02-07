@@ -7,7 +7,14 @@ class CityController < ApplicationController
   def show
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     @city = City.find(params[:id])
-    user = User.all.where(city_id: params[:id])
+    @user = User.all.where(city_id: params[:id])
+    @gossip_tab = []
+    @user.each do |user|
+      gossip = Gossip.all.where(user_id: user)
+      gossip.each do |gossip|
+        @gossip_tab << gossip
+      end
+    end
   end
 
   def new
