@@ -3,4 +3,6 @@
     <p>Contenu du potin : <%= @gossip.content %></p>
     <p>Crée le : <%= @gossip.created_at %></p>
     <p>Pottin écrit par : <a href="http://localhost:3000/user/<%= @gossip.user_id %>"><%= User.find(@gossip.user_id).first_name %> <%= User.find(@gossip.user_id).last_name %></a></p>
+    <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary">Modifier le Potin</a>
+    <a href="" class="btn btn-primary">Supprimer le Potin</a>
 </div>
