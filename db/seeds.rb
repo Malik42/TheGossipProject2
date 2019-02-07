@@ -25,7 +25,7 @@ end
 # on fait 10 tours de boucle ici
 10.times do
   # on remplis la table Gossip avec des donnee cree par faker
- tweety = Gossip.create!(title: Faker::Book.title,content: Faker::Lorem.sentence,user_id: rand((User.first.id)..(User.last.id)))
+  tweety = Gossip.create!(title: Faker::Book.title,content: Faker::Lorem.sentence,user_id: rand((User.first.id)..(User.last.id)))
 end
 
 # on fait 10 tours de boucle ici
