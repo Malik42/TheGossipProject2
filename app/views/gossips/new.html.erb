@@ -1,7 +1,15 @@
 <h1>cree un potin</h1>
 
-<%= form_tag "/new", method: "post" do%>
-    <input type="text" name="title">
-    <input type="text" name="content">
-    <input type="submit" value="Crée le potin">
-<% end %>
+<div class="col-6">
+    <%= form_tag "/show", method: "post" do%>
+        <div>
+            <label for="title">titre du potin</label>
+            <input type="text" name="title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="content"></label>
+            <textarea name="content" class="form-control"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Crée le potin">
+    <% end %>
+</div>

@@ -19,7 +19,6 @@ class GossipsController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     Gossip.create title: params[:title]
-    redirect_to "/new"
   end
 
   def edit
