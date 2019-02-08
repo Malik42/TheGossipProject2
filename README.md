@@ -1,6 +1,6 @@
 # Gossip project
 
-le lien heroku ici: https://pacific-sands-27928.herokuapp.com/comments/new.1
+le lien heroku ici: https://pacific-sands-27928.herokuapp.com/
 
 # Installation et préparation
 
