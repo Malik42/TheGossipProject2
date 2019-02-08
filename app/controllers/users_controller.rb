@@ -28,11 +28,9 @@ class UsersController < ApplicationController
     puts "$" * 60
     
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
-
+    @user.save
     if @user.save
-      session[:user_id] = @user.id
-      current_user
-      redirect_to "/"
+      redirect_to root_path
     else
       render :new
     end
