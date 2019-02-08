@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :city
   resources :users
   resources :comments
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :show]
   root 'gossips#index'
   # Contient les routes du programme
 
