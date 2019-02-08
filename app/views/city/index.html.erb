@@ -11,5 +11,9 @@
             </div>
         </div>
     <% end %>
+    <%if session[:user_id]%>
     <a href="<%= new_city_path %>" class="btn btn-primary">Ajouter une nouvelle ville</a>
+    <% else %>
+    <h2>connectez vous pour ajouter une ville</h2>
+    <% end %>
 </div>

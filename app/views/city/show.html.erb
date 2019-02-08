@@ -4,7 +4,11 @@
     <h2>Nom de la ville : <%= @city.name %></h2>
     <p>code postale : <%= @city.zip_code %></p>
     <p>Crée le : <%= @city.created_at %></p>
+    <%if session[:user_id]%>
     <a href="<%= edit_city_path(@city.id) %>" class="btn btn-primary">edit</a>
+    <% else %>
+    <h2>connectez vous pour ajouter une ville</h2>
+    <% end %>
 </div>
 
 <div class="row col-12 m-auto">

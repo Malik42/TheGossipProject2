@@ -1,3 +1,4 @@
+<%if session[:user_id]%>
 <h1>ajouter une ville</h1>
 
 <div class="col-6">
@@ -11,5 +12,8 @@
             <input type="text" name="zip_code" class="form-control">
         </div>
         <input type="submit" class="btn btn-primary" value="ajouter la ville">
+        <% else %>
+        <h2>connectez vous pour ajouter une ville</h2>
+        <% end %>
     <% end %>
 </div>
