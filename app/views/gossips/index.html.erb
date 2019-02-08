@@ -1,0 +1,19 @@
+<h1 class="text-center m-4 mb-5">Bienvenue à toi visiteur</h1>
+<div class="row col-10 m-auto">
+    <% @gossip.each do |gossip| %>
+        <div class="col-sm-6 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= gossip.title %></h5>
+                    <p class="card-text">Ce potin a ete cree par: <%= User.find(gossip.user_id).first_name %>.</p>
+                    <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir le Potin</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% if session[:user_id] %>
+        <a href="<%= new_gossip_path %>" class="btn btn-primary">cree un nouveau potin</a>
+    <%else%>
+        <a href="<%= new_session_path %>" class="btn btn-primary">cree un nouveau potin</a>
+    <% end %>
+</div>

@@ -19,13 +19,13 @@ end
 # on fait 10 tours de boucle ici
 10.times do
   # on remplis la table User avec des donnee cree par faker
-  utilisateur = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph,email: Faker::Internet.email, age: rand(18..75),city_id: rand((City.first.id)..(City.last.id)))
+  utilisateur = User.create!(first_name: Faker::Name.first_name,password: Faker::Internet.password, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph,email: Faker::Internet.email, age: rand(18..75),city_id: rand((City.first.id)..(City.last.id)))
 end
 
 # on fait 10 tours de boucle ici
 10.times do
   # on remplis la table Gossip avec des donnee cree par faker
- tweety = Gossip.create!(title: Faker::Book.title,content: Faker::Lorem.sentence,user_id: rand((User.first.id)..(User.last.id)))
+  tweety = Gossip.create!(title: Faker::Book.title,content: Faker::Lorem.sentence,user_id: rand((User.first.id)..(User.last.id)))
 end
 
 # on fait 10 tours de boucle ici
@@ -38,4 +38,9 @@ end
 10.times do
   # on remplis la table PrivateMessage avec des donnee cree par faker
   pm = PrivateMessage.create!(content: Faker::Lorem.sentence,sender_id: rand((User.first.id)..(User.last.id)),recipient_id: rand((User.first.id)..(User.last.id)))
+end
+
+20.times do
+  # on remplis la table PrivateMessage avec des donnee cree par faker
+  comment = Comment.create!(content: Faker::Lorem.sentence,user_id: rand((User.first.id)..(User.last.id)),gossip_id: rand((Gossip.first.id)..(Gossip.last.id)))
 end

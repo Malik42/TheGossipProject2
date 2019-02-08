@@ -1,0 +1,27 @@
+
+
+<div class="text-center m-5 col-12">
+    <h2>Nom de la ville : <%= @city.name %></h2>
+    <p>code postale : <%= @city.zip_code %></p>
+    <p>Crée le : <%= @city.created_at %></p>
+    <%if session[:user_id]%>
+    <a href="<%= edit_city_path(@city.id) %>" class="btn btn-primary">edit</a>
+    <% else %>
+    <h2>connectez vous pour ajouter une ville</h2>
+    <% end %>
+</div>
+
+<div class="row col-12 m-auto">
+    <h2 class="text-center m-4 mb-5 col-12">Voici les potins ecrit par les utilisateurs de cette ville:</h2>
+    <% @gossip_tab.each do |gossip| %>
+        <div class="col-sm-6 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= gossip.title %></h5>
+                    <p class="card-text">Ce potin a ete cree par: <%= User.find(gossip.user_id).first_name %>.</p>
+                    <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir le Potin</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
