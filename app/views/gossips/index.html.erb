@@ -11,5 +11,9 @@
             </div>
         </div>
     <% end %>
-    <a href="<%= new_gossip_path %>" class="btn btn-primary">cree un nouveau potin</a>
+    <% if session[:user_id] %>
+        <a href="<%= new_gossip_path %>" class="btn btn-primary">cree un nouveau potin</a>
+    <%else%>
+        <a href="<%= new_session_path %>" class="btn btn-primary">cree un nouveau potin</a>
+    <% end %>
 </div>
