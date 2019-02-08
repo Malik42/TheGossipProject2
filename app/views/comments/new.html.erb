@@ -1,0 +1,12 @@
+<h1>commentaire!</h1>
+
+<div class="col-6">
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <div>
+            <label for="content">commentaire:</label>
+            <textarea name="content" class="form-control"></textarea>
+            <input type="hidden" id="gossip_id" name="gossip_id" value="<%= @gossip %>">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Crée le potin">
+    <% end %>
+</div>
