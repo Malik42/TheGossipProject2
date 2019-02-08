@@ -27,14 +27,15 @@ class UsersController < ApplicationController
     puts params
     puts "$" * 60
     
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
-    @user.save
-    if @user.save
-      redirect_to root_path
-    else
-      render :new
-    end
-
+    # @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
+    # @user.save
+    # if @user.save
+    #   redirect_to root_path
+    # else
+    #   render :new
+    # end
+    user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], city_id: rand((City.first.id)..(City.last.id)), age: params[:age], description: params[:description])
+    redirect_to root_path
   end
 
   def edit
