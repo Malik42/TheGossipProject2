@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
       redirect_to gossip_path(params[:gossip_id])
       puts "non tu a pas remplit le formulaire"
     else
-      comment = Comment.create!(content: params[:content],gossip_id: params[:gossip_id],user_id: rand((User.first.id)..(User.last.id)))
+      comment = Comment.create!(content: params[:content],gossip_id: params[:gossip_id],user_id: session[:user_id])
       redirect_to gossip_path(params[:gossip_id])
     end
   end

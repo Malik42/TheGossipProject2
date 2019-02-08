@@ -3,9 +3,11 @@
     <p>Contenu du potin : <%= @gossip.content %></p>
     <p>Crée le : <%= @gossip.created_at %></p>
     <p>Pottin écrit par : <a href="http://localhost:3000/user/<%= @gossip.user_id %>"><%= User.find(@gossip.user_id).first_name %> <%= User.find(@gossip.user_id).last_name %></a></p>
-    <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary">Modifier le Potin</a>
-    <%= form_tag url_for(action: 'destroy'), method: "delete" do %>
-        <input type="submit" value="Supprimer le Potin" class="btn btn-danger"/>
+    <%if @gossip.user_id == session[:user_id]%>
+        <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary">Modifier le Potin</a>
+        <%= form_tag url_for(action: 'destroy'), method: "delete" do %>
+            <input type="submit" value="Supprimer le Potin" class="btn btn-danger"/>
+        <% end %>
     <% end %>
 </div>
 <div class="row col-12 m-auto">
@@ -16,14 +18,18 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= User.find(comment.user_id).first_name %> <%= User.find(comment.user_id).last_name %></h5>
                     <p class="card-text"><%= comment.content %></p>
-                    <a href="<%= edit_comment_path(comment.id) %>" class="btn btn-primary">edit</a>
-                    <%= form_tag url_for(controller: "comments", action: 'destroy'), method: "delete" do %>
-                        <input type="hidden" id="comment_id" name="comment_id" value="<%= comment.id %>">
-                        <input type="submit" value="delet" class="btn btn-danger"/>
+                    <% if comment.user_id == session[:user_id] %>
+                        <a href="<%= edit_comment_path(comment.id) %>" class="btn btn-primary">edit</a>
+                        <%= form_tag url_for(controller: "comments", action: 'destroy'), method: "delete" do %>
+                            <input type="hidden" id="comment_id" name="comment_id" value="<%= comment.id %>">
+                            <input type="submit" value="delet" class="btn btn-danger"/>
+                        <% end %>
                     <% end %>
                 </div>
             </div>
         </div>
     <% end %>
-    <a href="<%= new_comment_path(@gossip.id) %>" class="btn btn-primary">cree un nouveau commentaire</a>
+    <% if session[:user_id] %>
+        <a href="<%= new_comment_path(@gossip.id) %>" class="btn btn-primary">cree un nouveau commentaire</a>
+    <% end %>
 </div>

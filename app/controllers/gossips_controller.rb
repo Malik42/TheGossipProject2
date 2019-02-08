@@ -25,7 +25,7 @@ class GossipsController < ApplicationController
       redirect_to new_gossip_path
       puts "non tu a pas remplit le formulaire"
     else
-      gossip = Gossip.create!(title:params[:title],content: params[:content],user_id: rand((User.first.id)..(User.last.id)))
+      gossip = Gossip.create!(title:params[:title],content: params[:content],user_id: session[:user_id])
       redirect_to gossip_path(gossip.id)
     end
   end
