@@ -22,10 +22,10 @@ class UsersController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
       	
-  	puts "$" * 60
-    puts "ceci est le contenu de params :"
-    puts params
-    puts "$" * 60
+  	# puts "$" * 60
+    # puts "ceci est le contenu de params :"
+    # puts params
+    # puts "$" * 60
     
     # @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
     # @user.save
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     # else
     #   render :new
     # end
+    ville = City.create(name:"Firminy", zip_code: "42700")
     user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], city_id: rand((City.first.id)..(City.last.id)), age: params[:age], description: params[:description])
     redirect_to root_path
   end
