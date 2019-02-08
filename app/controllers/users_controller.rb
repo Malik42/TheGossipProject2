@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     # else
     #   render :new
     # end
-    ville = City.create(name:"Firminy", zip_code: "42700")
+    # ville = City.create(name:"Firminy", zip_code: "42700")
     user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], city_id: rand((City.first.id)..(City.last.id)), age: params[:age], description: params[:description])
     redirect_to root_path
   end
